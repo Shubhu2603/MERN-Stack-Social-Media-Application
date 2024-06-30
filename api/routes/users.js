@@ -27,22 +27,17 @@ router.put("/:id/update",async (req,res)=>{
 });
 
 //get user
-router.get("/:id/getUser",async (req,res)=>{
-
-    if(req.body.userId===req.params.id ||User.findById(req.params.id).isAdmin){
-
+router.get("/",async (req,res)=>{
+        
+    const userId=req.query.userId;
+    const username=req.query.username;
         try{
-            const user=await User.findById(req.params.id);
-            res.status(200).json("User Found");
+            const user=userId ? await User.findById(userId) : await User.findOne({username:username});
+            res.status(200).json(user);
         }
         catch(err){
             return res.status(500).json(err);
         }
-
-    }
-    else{
-        return res.status(403).json("User not found");
-    }
 
 });
 

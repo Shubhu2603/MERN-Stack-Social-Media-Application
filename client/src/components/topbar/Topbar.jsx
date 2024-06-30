@@ -7,7 +7,7 @@ export default function TopBar(){
     return(
         <div className="topbarContainer">
             <div className="topbarLeft">
-                <Link to="/" className="customLink" style={{textDecoration:"none"}}>
+                <Link to="/" className="customLink" style={{textDecoration:"none",color:"inherit"}}>
                 <span className="logo">LamaSocial</span>
                 </Link>
             </div>
