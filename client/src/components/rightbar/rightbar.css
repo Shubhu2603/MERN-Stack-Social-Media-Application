@@ -76,6 +76,12 @@
     margin-bottom: 20px;
     cursor: pointer;
 }
+
+.rightBarFollowingName{
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+}
 .rightBarFollowingImg{
     width: 120px;
     height: 120px;

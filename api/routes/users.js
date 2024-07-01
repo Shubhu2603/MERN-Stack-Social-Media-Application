@@ -27,20 +27,18 @@ router.put("/:id/update",async (req,res)=>{
 });
 
 //get user
-router.get("/",async (req,res)=>{
-        
-    const userId=req.query.userId;
-    const username=req.query.username;
-        try{
-            const user=userId ? await User.findById(userId) : await User.findOne({username:username});
-            res.status(200).json(user);
-        }
-        catch(err){
-            return res.status(500).json(err);
-        }
-
-});
-
+router.get("/", async (req, res) => {
+    const userId = req.query.userId;
+    const username = req.query.username;
+    try {
+      const user = userId
+        ? await User.findById(userId)
+        : await User.findOne({ username: username });
+      res.status(200).json(user);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 //delete user
 router.delete("/:id/delete",async (req,res)=>{
 
@@ -140,6 +138,25 @@ router.put("/:id/unfollow",async (req,res)=>{
         return res.status(404).json("User not Found");
     }
 
+});
+
+router.get("/friends/:userId",async (req,res)=>{
+    try {
+        const user=await User.findById(req.params.userId);
+        const friends=await Promise.all(
+            user.following.map((friendId)=>{
+                return User.findById(friendId);
+    })
+);
+        let friendList=[];
+        friends.map((friend)=>{
+            const {_id,username,profilePicture}=friend;
+            friendList.push({_id,username,profilePicture});
+        });
+        res.status(200).json(friendList)
+    } catch (error) {
+        res.status(500).json(error);
+    }
 });
 
 //getMutuals
