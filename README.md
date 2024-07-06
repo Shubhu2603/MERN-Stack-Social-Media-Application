@@ -2,7 +2,23 @@
 
 A modern, full-stack social media application showcasing advanced web development techniques using the MERN (MongoDB, Express, React, Node.js) stack.
 
+## System Overview
+
+### Login Page
+<p align="center"><br><img src="./Login.png" height="440" width="auto"><br><br></p>
+
+### Register Page
+<p align="center"><br><img src="./Register.png" height="440" width="auto"><br><br></p>
+
+### Timeline
+<p align="center"><br><img src="./Timeline.png" height="440" width="auto"><br><br></p>
+
+### Profile Page
+<p align="center"><br><img src="./Profile.png" height="440" width="auto"><br><br></p>
+
 ## ✨ Key Features
+
+
 
 - 🔐 User Authentication (Register, Login, Logout)
 - 👤 Profile Management (Update, Delete)
